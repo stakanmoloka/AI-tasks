@@ -14,7 +14,6 @@ def get_iqr_bounds(dataframe, column, k=1.5):
     iqr = q3 - q1
     lower_bound = q1 - k * iqr
     upper_bound = q3 + k * iqr
-
     return lower_bound, upper_bound
 
 
