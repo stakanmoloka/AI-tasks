@@ -36,9 +36,15 @@ def clean_by_iqr(dataframe, column, k=1.5, fillna_strategy="drop"):
     return cleaned_df
 
 
-prices = datasets.fetch_california_housing(as_frame=True)
-data_pd = prices.data
+def main():
+    """Основной скрипт: загрузка данных, очистка и вывод результатов."""
+    prices = datasets.fetch_california_housing(as_frame=True)
+    data_pd = prices.data
 
-data_cleaned = clean_by_iqr(data_pd, "MedInc", k=1.5, fillna_strategy="drop")
+    data_cleaned = clean_by_iqr(data_pd, "MedInc", k=1.5, fillna_strategy="drop")
 
-print("Количество удалённых строк:", len(data_pd) - len(data_cleaned))
+    print("Количество удалённых строк:", len(data_pd) - len(data_cleaned))
+
+
+if __name__ == "__main__":
+    main()
